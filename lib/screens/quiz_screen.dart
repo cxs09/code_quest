@@ -78,8 +78,8 @@ class QuizScreenState extends State<QuizScreen> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                           color: message == 'CORRECT!'
-                              ? Colors.green
-                              : Colors.red,
+                              ? Colors.green[50]
+                              : Colors.red[50],
                           borderRadius: BorderRadius.circular(8),
                         ),
                         padding: const EdgeInsets.all(12.0),
@@ -93,6 +93,7 @@ class QuizScreenState extends State<QuizScreen> {
                             fontWeight: FontWeight.w600,
                           ),
                           textAlign: TextAlign.center,
+                          softWrap: true,
                         ),
                       ),
                     ),
@@ -132,15 +133,12 @@ class QuizScreenState extends State<QuizScreen> {
                                         },
                                 ),
                               )),
-                          if (showCorrectAnswer &&
-                              message == 'CORRECT!' &&
-                              currentQuestion!.explanation.isNotEmpty)
+                          if (showCorrectAnswer && currentQuestion!.explanation.isNotEmpty)
                             Padding(
                               padding: const EdgeInsets.only(top: 16.0),
                               child: Text(
                                 'Explanation: ${currentQuestion!.explanation}',
-                                style:
-                                    const TextStyle(fontStyle: FontStyle.italic),
+                                style: const TextStyle(fontStyle: FontStyle.italic),
                               ),
                             ),
                         ],
